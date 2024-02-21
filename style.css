@@ -3,3 +3,6 @@ h1 {
   background-color: orange;
   font-size: xx-large;
 }
+p {
+    text-wrap: pretty;  
+}
