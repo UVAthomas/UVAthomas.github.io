@@ -50,16 +50,15 @@
             i = i - 1;
             countobj = document.getElementById("count");
             console.log("Updating object: " + countobj);
-            countobj.innerHTML = "<b>" + i + "</b>";
-              
-            // Calculate the lightness value based on the count
-            var lightness = (i / 20) * 100;
 
-            // Set the background color using HSL (Hue, Saturation, Lightness)
-            var hue = 0; // Use a fixed hue value for red
-            var saturation = "100%"; // Full saturation
-
-            document.getElementById("body").style.backgroundColor = "hsl(" + hue + ", " + saturation + ", " + lightness + "%)";
+            if (i > 0) {
+                countobj.innerHTML = "<b>" + i + "</b>";
+                var lightness = (i / 20) * 100;
+                document.getElementById("body").style.backgroundColor = "hsl(0, 100%, " + lightness + "%)";
+            } else {
+                countobj.innerHTML = "<b>WOAH!</b>";
+                document.getElementById("body").style.backgroundColor = "hsl(0, 100%, 0%)";
+            }
         }
     </script>
 </body>
