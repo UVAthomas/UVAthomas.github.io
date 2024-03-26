@@ -48,7 +48,9 @@
 
         function updateCount() {
             i = i - 1;
-            countobj = document.getElementById("count");
+            showCount(i)
+            if (i <= 0) { // double "==" is equality comparison
+            countobj.innerHTML = "<b><font size='+5'>BOOM!</b>";
             console.log("Updating object: " + countobj);
             countobj.innerHTML = "<b>" + i + "</b>";
 
