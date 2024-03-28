@@ -63,3 +63,54 @@
     </script>
 </body>
 </html>
+
+
+
+const photoUrls = [
+  "https://upload.wikimedia.org/wikipedia/commons/0/09/Casa_de_Carousel_1.JPG",
+  "https://cdn.vox-cdn.com/thumbor/sNWqq0xu4O-Xv5_kwEdwiErWhyc=/0x0:5892x3928/1200x800/filters:focal(2497x567:3439x1509)/cdn.vox-cdn.com/uploads/chorus_image/image/73223618/2098003118.0.jpg",
+  "https://news.virginia.edu/sites/default/files/article_image/mens_hoops_academics_mr_header_1.jpg",
+  "https://www.si.com/.image/t_share/MTg0NDM2NTc3NTQyMzQ5OTQ0/kihei-clark-vs-navy.jpg",
+  "https://s3media.247sports.com/Uploads/Assets/949/520/9520949.jpg"
+];
+
+const carouselContainer = document.querySelector(".carousel-container");
+let currentSlideIndex = 0;
+
+function showSlide(index) {
+  slides.forEach((slide) => {
+    slide.style.display = "none";
+  });
+  slides[index].style.display = "block";
+}
+
+function nextSlide() {
+  currentSlideIndex++;
+  if (currentSlideIndex >= slides.length) {
+    currentSlideIndex = 0;
+  }
+  showSlide(currentSlideIndex);
+}
+
+function prevSlide() {
+  currentSlideIndex--;
+  if (currentSlideIndex < 0) {
+    currentSlideIndex = slides.length - 1;
+  }
+  showSlide(currentSlideIndex);
+}
+
+const slides = photoUrls.map((url) => {
+  const slide = document.createElement("div");
+  slide.className = "slide";
+  const img = document.createElement("img");
+  img.src = url;
+  img.alt = "Photo";
+  slide.appendChild(img);
+  carouselContainer.appendChild(slide);
+  return slide;
+});
+
+setInterval(nextSlide, 3000);
+
+showSlide(currentSlideIndex);
