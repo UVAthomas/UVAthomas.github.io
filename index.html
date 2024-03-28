@@ -66,3 +66,35 @@
 
 
 
+var carouselImage = document.getElementById("carousel-image");
+var images = [
+  'https://upload.wikimedia.org/wikipedia/commons/0/09/Casa_de_Carousel_1.JPG',
+  'https://news.virginia.edu/sites/default/files/article_image/mens_hoops_academics_mr_header_1.jpg',
+  'https://www.si.com/.image/t_share/MTg0NDM2NTc3NTQyMzQ5OTQ0/kihei-clark-vs-navy.jpg',
+  'https://s3media.247sports.com/Uploads/Assets/949/520/9520949.jpg'
+];
+var currentIndex = 0;
+
+function showImage() {
+  carouselImage.src = images[currentIndex];
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage();
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage();
+}
+
+// Show initial image
+showImage();
+
+// Add event listeners to the next and previous buttons
+document.getElementById("next-button").addEventListener("click", nextImage);
+document.getElementById("prev-button").addEventListener("click", prevImage);
+
+
+
